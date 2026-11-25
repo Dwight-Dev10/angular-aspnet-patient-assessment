@@ -1,0 +1,26 @@
+<h2>Patients</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date of birth</th>
+      <th>Condition</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (patient of patients; track patient.id) {
+      <tr>
+        <td>{{ patient.firstName }} {{ patient.lastName }}</td>
+        <td>{{ patient.dob | date: 'mediumDate' }}</td>
+        <td>{{ patient.condition }}</td>
+        <td><button type="button" (click)="refer(patient)">Refer</button></td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+@if (selected) {
+  <app-referral-form [patient]="selected" (done)="closeReferral()" />
+}

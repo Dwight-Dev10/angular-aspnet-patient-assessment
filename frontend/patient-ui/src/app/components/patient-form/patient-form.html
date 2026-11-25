@@ -1,0 +1,9 @@
+<h2>Add patient</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>First name <input formControlName="firstName" /></label>
+  <label>Last name <input formControlName="lastName" /></label>
+  <label>Date of birth <input type="date" formControlName="dateOfBirth" /></label>
+  <label>Condition <input formControlName="condition" /></label>
+  <button type="submit" [disabled]="form.invalid">Add</button>
+</form>

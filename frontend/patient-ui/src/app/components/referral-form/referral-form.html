@@ -1,0 +1,18 @@
+<section class="referral">
+  <h3>Refer {{ patient().firstName }} {{ patient().lastName }}</h3>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>
+      Specialty
+      <select formControlName="specialty">
+        <option value="" disabled>Choose…</option>
+        @for (s of specialties; track s) {
+          <option [value]="s">{{ s }}</option>
+        }
+      </select>
+    </label>
+    <label>Reason <textarea formControlName="reason"></textarea></label>
+    <button type="submit" [disabled]="form.invalid">Send referral</button>
+    <button type="button" (click)="done.emit()">Cancel</button>
+  </form>
+</section>

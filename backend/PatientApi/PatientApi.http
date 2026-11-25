@@ -1,0 +1,18 @@
+@host = http://localhost:5006
+
+GET {{host}}/api/patients
+
+###
+GET {{host}}/api/patients/1
+
+###
+POST {{host}}/api/patients
+Content-Type: application/json
+
+{ "firstName": "Katherine", "lastName": "Johnson", "dateOfBirth": "1980-08-26", "condition": "Migraine" }
+
+###
+POST {{host}}/api/referrals
+Content-Type: application/json
+
+{ "patientId": 1, "specialty": "Cardiology", "reason": "Follow-up on blood pressure" }
